@@ -20,16 +20,24 @@ setTimeout(() => {
     inputArea.classList.add('hidden');
     inputArea.classList.remove('hidden');
 }
-, 3000);
+    , 3000);
 
 // Send button
-    submitButton.addEventListener('click', () => {
-        const userNumbers = [];
-        for (let i = 1; i <= 5; i++) {
-            const inputValue = parseInt(document.getElementById(input$).value);
-            if (!isNaN(inputValue)) {
-                userNumbers.push(inputValue);
-            }
+submitButton.addEventListener('click', () => {
+    const userNumbers = [];
+    for (let i = 1; i <= 5; i++) {
+        const inputValue = parseInt(document.getElementById(input$).value);
+        if (!isNaN(inputValue)) {
+            userNumbers.push(inputValue);
         }
-    });
-    
+    }
+});
+
+// Compare the numbers
+let correctNumbers = [];
+randomNumbers.forEach((number) => {
+    if (userNumbers.includes(number)) {
+        correctNumbers.push(number);
+    }
+});
+
